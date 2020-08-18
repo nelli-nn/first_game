@@ -1,46 +1,46 @@
 #include "PlayingField.h"
 PlayingField::PlayingField() :
-	countClick(0),
-	visited(X, std::vector<bool>(Y, false)),
-	axesOx(false),
-	axesOy(false)
+  countClick(0),
+  visited(X, std::vector<bool>(Y, false)),
+  axesOx(false),
+  axesOy(false)
 {
 
 }
 int PlayingField::GetClickNumber()
 {
-	return countClick;
+  return countClick;
 }
 void PlayingField::DrawField(std::shared_ptr<sf::RenderWindow> window)
 {
-	for (auto& gem : gemMatrix)
-	{
-		for (auto& currentGem : gem)
-		{
-			currentGem->Draw(window);
-		}
-	}
+  for (auto& gem : gemMatrix)
+  {
+    for (auto& currentGem : gem)
+     {
+       currentGem->Draw(window);
+     }
+  }
 }
 void PlayingField::CheckClick(std::shared_ptr<sf::RenderWindow> window, int * scoreTotal)
 {
-	for (int i = 0; i < X; i++)
-		for (int j = 0; j < Y; j++) {
-			if (i == coordinates.y - 1 && j == coordinates.x - 1) {
-				if (Difference()) {
-					Swap(window);
-					if (Combinations())
-					{
-						CheckLine(scoreTotal, window);
-					}
-					else
-					{
-						Swap(window);
-					}
-				}
-				StartPositions();
-				countClick = 0;
-			}
-		}
+  for (int i = 0; i < X; i++)
+    for (int j = 0; j < Y; j++) {
+      if (i == coordinates.y - 1 && j == coordinates.x - 1) {
+	if (Difference()) {
+          Swap(window);
+	  if (Combinations())
+	  {
+	    CheckLine(scoreTotal, window);
+	  }
+	  else
+	  {
+	    Swap(window);
+	  }
+	}
+	StartPositions();
+	countClick = 0;
+      }
+    }
 }
 void PlayingField::CheckLine(int* scoreTotal, std::shared_ptr<sf::RenderWindow> window)
 {
