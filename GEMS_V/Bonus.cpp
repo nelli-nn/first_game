@@ -20,34 +20,34 @@ void RepaintingBonus::Create(std::vector<std::vector<std::shared_ptr<Gem>>> gemM
 	   int x_ = rand() % (2 - (-2)) - 2;
 	   int y_ = rand() % (2 - (-2)) - 2;
 	   if (abs(x_) == 1 || x_ == 0)
-					{
-						y_ = randIndexY[rand() % 2];
-					}
-					if (((i + x) >= 0 && (i + x) < X) && ((j + y) < X && (j + y) >= 0) && ((i + x_) >= 0 && (i + x_) < X) && ((j + y_) < X && (j + y_) >= 0))
-					{
-						gemMatrix[i + x][j + y]->SetColor(gemMatrix[i][j]->GetColor());
-						gemMatrix[i + x_][j + y_]->SetColor(gemMatrix[i][j]->GetColor());
-						gemMatrix[i][j]->SetOutline(window, sf::Color::White);
-						gemMatrix[i + x][j + y]->SetOutline(window, sf::Color::White);
-						gemMatrix[i + x_][j + y_]->SetOutline(window, sf::Color::White);
-					}
-					return;
-				}
-			}
-		}
+	   {
+             y_ = randIndexY[rand() % 2];
+	   }
+	   if (((i + x) >= 0 && (i + x) < X) && ((j + y) < X && (j + y) >= 0) && ((i + x_) >= 0 && (i + x_) < X) && ((j + y_) < X && (j + y_) >= 0))
+	   {
+	     gemMatrix[i + x][j + y]->SetColor(gemMatrix[i][j]->GetColor());
+             gemMatrix[i + x_][j + y_]->SetColor(gemMatrix[i][j]->GetColor());
+	     gemMatrix[i][j]->SetOutline(window, sf::Color::White);
+	     gemMatrix[i + x][j + y]->SetOutline(window, sf::Color::White);
+             gemMatrix[i + x_][j + y_]->SetOutline(window, sf::Color::White);
+	   }
+	 return;
+       }
+     }
+   }
 }
 
 void BombBonus::Create(std::vector<std::vector<std::shared_ptr<Gem>>> gemMatrix, std::vector<std::vector <bool>> visited, std::shared_ptr<sf::RenderWindow>)
 {
-	int bombs = 5;
-	while (bombs)
-	{
-		int x = rand() % 8;
-		int y = rand() % 8;
-		if (gemMatrix[x][y]->GetColor() != (COLOR)8)
-		{
-			gemMatrix[x][y]->SetColor((COLOR)8);
-			bombs--;
-		}
-	}
+  int bombs = 5;
+  while (bombs)
+  {
+    int x = rand() % 8;
+    int y = rand() % 8;
+    if (gemMatrix[x][y]->GetColor() != (COLOR)8)
+    {
+      gemMatrix[x][y]->SetColor((COLOR)8);
+      bombs--;
+    }
+  }
 }
