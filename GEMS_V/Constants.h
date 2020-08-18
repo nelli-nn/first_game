@@ -19,19 +19,19 @@ static float const TEXT_Y = 10.0;
 static int const SCORE_WIN = 200;
 
 enum class STATE_GAME {
-	CONTINUING_GAME,
-	GAME_OVER
+  CONTINUING_GAME,
+  GAME_OVER
 };
 
 enum class COLOR {
-	GREEN,
-	YELLOW,
-	RED,
-	BLUE,
-	WHITE,
-	CYAN,
-	MAGENTA,
-	BLACK,
-	DELETE
+  GREEN,
+  YELLOW,
+  RED,
+  BLUE,
+  WHITE,
+  CYAN,
+  MAGENTA,
+  BLACK,
+  DELETE
 };
 
