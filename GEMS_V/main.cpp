@@ -3,12 +3,8 @@
 
 int main()
 {
-	std::srand(static_cast<unsigned int>(time(nullptr)));
-
-	Game game;
-
-	game.Run();
-
-	return 0;
-
+  std::srand(static_cast<unsigned int>(time(nullptr)));
+  Game game;
+  game.Run();
+  return 0;
 }
